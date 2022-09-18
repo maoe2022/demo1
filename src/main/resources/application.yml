@@ -1,0 +1,17 @@
+# src/main/resources/application.yml
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: qrCYXaauOrFrzn6eixwPeWcTQopTJQTk
+            client-secret: F2-odWkm74WUxVCs3p53L96L1rSIqzMJep008o8T5A4BuAGPpgj2Fatxoq2gc8wM
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://maoe2023.us.auth0.com/
