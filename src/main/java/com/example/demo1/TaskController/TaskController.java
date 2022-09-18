@@ -4,6 +4,7 @@ import com.example.demo1.entities.Task;
 import com.example.demo1.entities.TaskList;
 import com.example.demo1.services.TaskServices;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
@@ -51,10 +52,14 @@ public class TaskController {
     }*/
 
     @PostMapping("/tasks")
-    public RedirectView createTask(@ModelAttribute @DateTimeFormat(pattern = "YYYY-MM-DD") Task task, Model model){
+    public RedirectView createTask(@ModelAttribute @DateTimeFormat(pattern = "YYYY-MM-DD") Task task, Model model, RedirectAttributes redirectAttrs){
         model.addAttribute(task);
         task.setDone(false);
         this.services.createTask(task);
+        redirectAttrs
+                .addFlashAttribute("mensaje", "Tarea creada")
+                .addFlashAttribute("clase", "success");
+
         return new RedirectView("/tasks");
     }
 

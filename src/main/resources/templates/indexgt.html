@@ -11,7 +11,7 @@
 <main>
     <div class="px-4 py-5 mx-5 text-center">
         <div class="my-5">
-            <h1 class="display-5 fw-bold mb-4"> MI PRIMERA PAGINA WEB INTEGRANDO THYMELEAF</h1>
+            <h1 class="display-5 fw-bold mb-4"> MI PRIMERA PAGINA WEB DESPLEGADA CON HEROKU</h1>
             <a th:href="@{/tasks/nuevotask}" class="btn btn-secondary">Crear Tareas</a>
         </div>
         <div th:classappend="'alert-' + (${clase != null} ? ${clase} : info)" th:if="${mensaje != null}"
